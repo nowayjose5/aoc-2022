@@ -1,0 +1,19 @@
+{
+  "name": "aoc-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "execute:1a": "ts-node src/1/a.ts",
+    "execute:1b": "ts-node src/1/b.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  }
+}
