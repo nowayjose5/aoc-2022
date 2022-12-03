@@ -20,12 +20,18 @@ fs.readFile('src/1/input.txt', 'utf8', (err, data) => {
     // then compare 4th and so on totals with first three,
     // replace if new total is higher
     topThreeTotals.forEach((total, index) => {
-      if (totalNumberOfCalories > total && !topThreeTotals.includes(totalNumberOfCalories)) {
+      if (
+        totalNumberOfCalories > total &&
+        !topThreeTotals.includes(totalNumberOfCalories)
+      ) {
         topThreeTotals[index] = totalNumberOfCalories;
       }
-    })
+    });
   });
 
   console.log('Top 3 Totals: ', topThreeTotals);
-  console.log('Total Number of Calories for Top 3: ', topThreeTotals.reduce((prev, curr) => prev + curr, 0));
+  console.log(
+    'Total Number of Calories for Top 3: ',
+    topThreeTotals.reduce((prev, curr) => prev + curr, 0)
+  );
 });
