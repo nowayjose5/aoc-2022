@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "execute:1a": "ts-node src/1/a.ts",
-    "execute:1b": "ts-node src/1/b.ts"
+    "start:1a": "ts-node src/1/a.ts",
+    "start:1b": "ts-node src/1/b.ts",
+    "start:2a": "ts-node src/2/a.ts",
+    "start:2b": "ts-node src/2/b.ts"
   },
   "keywords": [],
   "author": "",
