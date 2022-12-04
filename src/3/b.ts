@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const lowerCaseLetters = [
+const letters = [
   'a',
   'b',
   'c',
@@ -27,8 +27,6 @@ const lowerCaseLetters = [
   'x',
   'y',
   'z',
-];
-const upperCaseLetters = [
   'A',
   'B',
   'C',
@@ -57,51 +55,31 @@ const upperCaseLetters = [
   'Z',
 ];
 
-// const data = fs.readFileSync('src/3/input.example.txt', 'utf8');
-const data = fs.readFileSync('src/3/input.prod.txt', 'utf8');
+const data = fs.readFileSync('src/3/input.example.txt', 'utf8');
+// const data = fs.readFileSync('src/3/input.prod.txt', 'utf8');
 
 const rucksacks = data.split('\n');
-let prioritySum = 0;
 let threeElvesRucksackGroup: string[] = [];
-rucksacks.forEach((rucksack, index) => {
-  if (index + (1 % 3) !== 0 && threeElvesRucksackGroup.length === 3) {
-    threeElvesRucksackGroup = [];
-  }
+const prioritySum = rucksacks
+  .map((rucksack, index) => {
+    if ((index + 1) % 3 !== 0) {
+      threeElvesRucksackGroup.push(rucksack);
+    }
 
-  if ((index + 1) % 3 !== 0) {
-    threeElvesRucksackGroup.push(rucksack);
-  }
-
-  if ((index + 1) % 3 === 0) {
-    threeElvesRucksackGroup.push(rucksack);
-
-    const lowerCaseLetterFound = lowerCaseLetters.find(
-      (lowerCaseLetter) =>
-        threeElvesRucksackGroup[0].includes(lowerCaseLetter) &&
-        threeElvesRucksackGroup[1].includes(lowerCaseLetter) &&
-        threeElvesRucksackGroup[2].includes(lowerCaseLetter)
-    );
-    const upperCaseLetterFound = upperCaseLetters.find(
-      (upperCaseLetter) =>
-        threeElvesRucksackGroup[0].includes(upperCaseLetter) &&
-        threeElvesRucksackGroup[1].includes(upperCaseLetter) &&
-        threeElvesRucksackGroup[2].includes(upperCaseLetter)
-    );
-
-    if (lowerCaseLetterFound) {
-      prioritySum +=
-        lowerCaseLetters.findIndex(
-          (letter) => letter === lowerCaseLetterFound
+    if ((index + 1) % 3 === 0) {
+      threeElvesRucksackGroup.push(rucksack);
+      const sum =
+        letters.findIndex(
+          (letter) =>
+            threeElvesRucksackGroup[0].includes(letter) &&
+            threeElvesRucksackGroup[1].includes(letter) &&
+            threeElvesRucksackGroup[2].includes(letter)
         ) + 1;
+      threeElvesRucksackGroup = [];
+      return sum;
     }
-
-    if (upperCaseLetterFound) {
-      prioritySum +=
-        upperCaseLetters.findIndex(
-          (letter) => letter === upperCaseLetterFound
-        ) + 27;
-    }
-  }
-});
+    return 0;
+  })
+  .reduce((acc, curr) => acc + curr);
 
 console.log(prioritySum);

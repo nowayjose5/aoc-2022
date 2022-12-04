@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const lowerCaseLetters = [
+const letters = [
   'a',
   'b',
   'c',
@@ -27,8 +27,6 @@ const lowerCaseLetters = [
   'x',
   'y',
   'z',
-];
-const upperCaseLetters = [
   'A',
   'B',
   'C',
@@ -67,29 +65,11 @@ const prioritySum = rucksacks
     const compOne = rucksack.slice(0, rucksack.length / 2);
     const compTwo = rucksack.slice(rucksack.length / 2, rucksack.length);
 
-    const lowerCaseLetterFound = lowerCaseLetters.find(
-      (lowerCaseLetter) =>
-        compOne.includes(lowerCaseLetter) && compTwo.includes(lowerCaseLetter)
+    return (
+      letters.findIndex(
+        (letter) => compOne.includes(letter) && compTwo.includes(letter)
+      ) + 1
     );
-    if (lowerCaseLetterFound) {
-      return (
-        lowerCaseLetters.findIndex(
-          (letter) => letter === lowerCaseLetterFound
-        ) + 1
-      );
-    }
-
-    const upperCaseLetterFound = upperCaseLetters.find(
-      (upperCaseLetter) =>
-        compOne.includes(upperCaseLetter) && compTwo.includes(upperCaseLetter)
-    );
-    if (upperCaseLetterFound) {
-      return (
-        upperCaseLetters.findIndex(
-          (letter) => letter === upperCaseLetterFound
-        ) + 27
-      );
-    }
   })
   .reduce((a, b) => a + b, 0);
 
