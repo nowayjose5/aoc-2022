@@ -6,11 +6,11 @@ const checkOverlappingPairs = (
 ): number => {
   const [firstElfStartBound, firstElfEndBound] = firstElfAssignments
     .split('-')
-    .map((value) => Number(value)) as [number, number];
+    .map(Number) as [number, number];
 
   const [secondElfStartBound, secondElfEndBound] = secondElfAssignments
     .split('-')
-    .map((value) => Number(value)) as [number, number];
+    .map(Number) as [number, number];
 
   if (
     firstElfStartBound <= secondElfEndBound &&
@@ -26,7 +26,7 @@ const data = fs.readFileSync('src/4/input.prod.txt', 'utf8');
 
 const pairs = data.split('\n');
 
-const sum = pairs
+const totalOverlapsSum = pairs
   .map((pair) => {
     const [firstElfAssignments, secondElfAssignments] = pair.split(',') as [
       string,
@@ -37,4 +37,4 @@ const sum = pairs
   })
   .reduce((acc, curr) => acc + curr, 0);
 
-console.log(sum);
+console.log(totalOverlapsSum);
