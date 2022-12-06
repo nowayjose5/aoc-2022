@@ -16,7 +16,9 @@
     "start:4a": "ts-node src/4/a.ts",
     "start:4b": "ts-node src/4/b.ts",
     "start:5a": "ts-node src/5/a.ts",
-    "start:5b": "ts-node src/5/b.ts"
+    "start:5b": "ts-node src/5/b.ts",
+    "start:6a": "ts-node src/6/a.ts",
+    "start:6b": "ts-node src/6/b.ts"
   },
   "keywords": [],
   "author": "",
