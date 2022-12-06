@@ -8,12 +8,10 @@ const buffer = data.split('');
 let lastCharacterStreamed = 0;
 for (let i = 0; i < buffer.length; i++) {
   const lastFourteen = buffer.slice(i, i + 14);
-  if (lastFourteen.filter((value) => value).length === 14) {
-    const unique = new Set(lastFourteen);
-    if (unique.size === lastFourteen.length) {
-      lastCharacterStreamed = i + 14;
-      break;
-    }
+  const unique = new Set(lastFourteen);
+  if (unique.size === lastFourteen.length) {
+    lastCharacterStreamed = i + 14;
+    break;
   }
 }
 
