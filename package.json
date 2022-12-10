@@ -24,7 +24,9 @@
     "start:8a": "ts-node src/8/a.ts",
     "start:8b": "ts-node src/8/b.ts",
     "start:9a": "ts-node src/9/a.ts",
-    "start:9b": "ts-node src/9/b.ts"
+    "start:9b": "ts-node src/9/b.ts",
+    "start:10a": "ts-node src/10/a.ts",
+    "start:10b": "ts-node src/10/b.ts"
   },
   "keywords": [],
   "author": "",
